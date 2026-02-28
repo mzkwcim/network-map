@@ -1,0 +1,8 @@
+{
+  "nodes": [
+    { "id": "cloudflare", "label": "Cloudflare", "zone": "Public", "role": "Edge", "x": 440, "y": 90, "w": 260, "h": 80, "access": "Tunnel + Access", "notes": "Public UI / protected admin" },
+    { "id": "twingate", "label": "Twingate", "zone": "Private", "role": "Overlay", "x": 440, "y": 210, "w": 260, "h": 80, "access": "Overlay network", "notes": "Private APIs only" },
+    { "id": "jira", "label": "Jira", "zone": "OVH", "role": "App", "x": 840, "y": 120, "w": 240, "h": 80, "addr": "jira.internal", "notes": "Linux host" },
+    { "id": "n8n", "label": "n8n", "zone": "LAN", "role": "Automation", "x": 120, "y": 120, "w": 240, "h": 80, "addr": "n8n.internal", "notes": "Raspberry Pi" }
+  ]
+}

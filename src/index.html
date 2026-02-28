@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Network Map — Topology & Flows</title>
+
+  <!-- IMPORTANT: relative paths for GitHub Pages -->
+  <link rel="stylesheet" href="./network-map.css" />
+</head>
+
+<body>
+  <header class="header">
+    <div class="wrap">
+      <div class="topbar">
+        <div class="brand">
+          <div class="logo">🗺️</div>
+          <div class="brandtext">
+            <div class="title">Network Map</div>
+            <div class="subtitle">Topology + Flows</div>
+          </div>
+        </div>
+
+        <nav class="nav">
+          <a class="navLink" href="https://mzkwcim.net" target="_blank" rel="noopener noreferrer">Portfolio ↗</a>
+          <a class="navLink" href="https://mzkwcim.net/about" target="_blank" rel="noopener noreferrer">About ↗</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div class="viewTabs">
+      <button class="tabBtn" aria-selected="true" data-view="topology">Topology</button>
+      <button class="tabBtn" aria-selected="false" data-view="flows">Flows</button>
+      <span class="pill">LAN</span>
+      <span class="pill warn">Twingate Private</span>
+      <span class="pill ok">Cloudflare Public</span>
+      <span class="pill">OVH</span>
+      <span class="pill" title="IP masking is enabled by default">IP masked</span>
+    </div>
+
+    <section class="mapShell">
+      <div class="card mapStage">
+        <div class="cardHead">
+          <div>
+            <div class="cardTitle">View</div>
+            <div class="muted small">Click a node or flow to see details</div>
+          </div>
+          <button class="btn" id="resetBtn" type="button">Reset</button>
+        </div>
+
+        <div class="stageBody">
+          <div class="stageCanvas" id="topologyView">
+            <svg id="topologySvg" viewBox="0 0 1200 640" role="img" aria-label="Topology diagram"></svg>
+          </div>
+          <div class="stageCanvas hidden" id="flowsView">
+            <svg id="flowsSvg" viewBox="0 0 1200 640" role="img" aria-label="Flows diagram"></svg>
+          </div>
+
+          <div class="hintRow">
+            <span class="pill">click = details</span>
+            <span class="pill">Auth: CF Access / TG</span>
+            <span class="pill">Ports: 443 / 636 / 161</span>
+          </div>
+        </div>
+      </div>
+
+      <aside class="card details" id="details">
+        <div class="cardHead">
+          <div class="cardTitle">Details</div>
+          <span class="pill" id="detailType">—</span>
+        </div>
+
+        <div class="detailsBody">
+          <div class="kv" id="kv">
+            <div class="k">Name</div><div class="v muted" id="dName">Click a node/flow</div>
+            <div class="k">Role</div><div class="v muted" id="dRole">—</div>
+            <div class="k">Zone</div><div class="v muted" id="dZone">—</div>
+            <div class="k">IP/FQDN</div><div class="v muted mono" id="dAddr">—</div>
+          </div>
+
+          <div class="sep"></div>
+
+          <div class="muted small">Public / Origin / Auth</div>
+          <div class="codeBox mono" id="dAccess">—</div>
+
+          <div class="sep"></div>
+
+          <div class="muted small">Notes</div>
+          <div class="codeBox mono" id="dNotes">—</div>
+        </div>
+      </aside>
+    </section>
+
+    <footer class="footer muted">
+      <span>© <span id="year"></span> network-map</span>
+    </footer>
+  </main>
+
+  <script src="./network-map.js"></script>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

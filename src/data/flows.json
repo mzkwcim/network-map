@@ -1,0 +1,6 @@
+{
+  "edges": [
+    { "from": "jira", "to": "n8n", "proto": "HTTP", "zone": "Private", "path": "/webhook/...", "auth": "X-Shared-Secret", "notes": "Jira automation → n8n webhook" },
+    { "from": "n8n", "to": "jira", "proto": "HTTP", "zone": "Private", "path": "/rest/api/...", "auth": "API token (internal)", "notes": "n8n → Jira API action" }
+  ]
+}
