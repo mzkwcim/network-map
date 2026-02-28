@@ -1,0 +1,22 @@
+name: CI
+
+on:
+  push:
+    branches: ["master"]
+  pull_requests:
+    branches: ["master"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubutnu-lates
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Validate data
+        run: node scrips/validate-data.mjs
